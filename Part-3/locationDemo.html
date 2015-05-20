@@ -17,7 +17,10 @@ New Task: <input type="text" ng-model="todo.newTask">
 <script>
     (function (ng) {
         var todoApp = ng.module("todo", []);
-        todoApp.controller("TODOController", function () {
+        todoApp.controller("TODOController", ["$location", function ($location) {
+            console.log($location.$$absUrl == "http://localhost:3000/locationDemo.html"); // true
+            console.log($location.$$host == "localhost"); // true
+            console.log($location.$$port == 3000); // true
             var todo = this;
             todo.tasks = [];
             todo.addTask = function () {
@@ -27,7 +30,7 @@ New Task: <input type="text" ng-model="todo.newTask">
             todo.removeTask = function (index) {
                 todo.tasks.splice(index, 1);
             }
-        });
+        }]);
     })(angular);
 </script>
 </body>
