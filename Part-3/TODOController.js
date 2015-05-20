@@ -15,11 +15,25 @@
                 console.log(error);
             });
         todoController.addTask = function () {
-            todoController.tasks.push(todoController.newTask);
-            todoController.newTask = '';
+            todoService.addTODOTask(todoController.newTask)
+                .success(function (response) {
+                    todoController.tasks.push(todoController.newTask);
+                    todoController.newTask = '';
+                })
+                .error(function (error) {
+                    // Handle error here.
+                    console.log(error);
+                });
         };
         todoController.removeTask = function (index) {
-            todoController.tasks.splice(index, 1);
+            todoService.deleteTODOTask(index)
+                .success(function (response) {
+                    todoController.tasks.splice(index, 1);
+                })
+                .error(function (error) {
+                    // Handle error here.
+                    console.log(error);
+                });
         };
     }]);
 })(angular);

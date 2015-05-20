@@ -1,0 +1,31 @@
+{
+  "name": "A-Different-Thought-AngualarJS",
+  "version": "0.0.1",
+  "description": "This repository contains demo for slide \"A Different Thought AngularJS\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmitThakkar/A-Different-Thought-AngualarJS.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "NodeJS",
+    "Service",
+    "TODO",
+    "App"
+  ],
+  "author": "Amit Thakkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmitThakkar/A-Different-Thought-AngualarJS/issues"
+  },
+  "homepage": "https://github.com/AmitThakkar/A-Different-Thought-AngualarJS",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4"
+  }
+}
