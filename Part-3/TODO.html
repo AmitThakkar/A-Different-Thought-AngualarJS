@@ -5,7 +5,7 @@
     <title>TO DO App</title>
 </head>
 <body ng-controller="TODOController as todo">
-New Task: <input type="text" ng-model="todo.newTask">
+New Task: <input type="text" ng-model="todo.newTask" key-enter="todo.addTask()">
 <input type="button" value="Add Task" ng-click="todo.addTask()">
 <h4 ng-show="todo.tasks.length">TODO List:</h4>
 <ul>
@@ -16,5 +16,6 @@ New Task: <input type="text" ng-model="todo.newTask">
 <script src="../lib/angular.min.js"></script>
 <script src="TODOController.js"></script>
 <script src="TODOService.js"></script>
+<script src="Directives.js"></script>
 </body>
 </html>
