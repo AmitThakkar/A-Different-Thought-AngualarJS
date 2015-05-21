@@ -27,7 +27,6 @@
         res.send({status: 200});
     });
     var server = app.listen(3000, function () {
-        var port = server.address().port;
-        console.log('TODO app listening at http://localhost:' + port);
+        console.log('TODO app listening at http://localhost:' + server.address().port);
     });
 })(require);

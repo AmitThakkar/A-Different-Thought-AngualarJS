@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="todo">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TO DO App</title>
+</head>
+<body ng-controller="TODOController as todo">
+New Task: <input type="text" ng-model="todo.newTask">
+<input type="button" value="Add Task" ng-click="todo.addTask()">
+<h4 ng-show="todo.tasks.length">TODO List:</h4>
+<ul>
+    <li ng-repeat="task in todo.tasks">
+        {{$index + 1}} {{task}} <input type="button" value="Remove" ng-click="todo.removeTask($index)">
+    </li>
+</ul>
+<script src="../lib/angular.min.js"></script>
+<script>
+    (function (ng) {
+        var todoApp = ng.module("todo", []);
+        todoApp.controller("TODOController", ["$http", function ($http) {
+            $http.get("todo")
+                    .success(function (todo) {
+                        todoController.tasks = todo;
+                    })
+                    .error(function (error) {
+                        // Handle error here.
+                        console.log(error);
+                    });
+            var todoController = this;
+//            todoController.tasks = [];
+            todoController.addTask = function () {
+                todoController.tasks.push(todoController.newTask);
+                todoController.newTask = '';
+            };
+            todoController.removeTask = function (index) {
+                todoController.tasks.splice(index, 1);
+            }
+        }]);
+    })(angular);
+</script>
+</body>
+</html>
